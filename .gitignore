@@ -35,7 +35,6 @@ yarn-error.log*
 
 node_modules
 .env
-.secret
 coverage
 coverage.json
 typechain
@@ -43,3 +42,5 @@ typechain
 #Hardhat files
 cache
 artifacts
+.secret
+.project_Id

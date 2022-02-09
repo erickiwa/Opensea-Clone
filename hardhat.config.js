@@ -1,7 +1,7 @@
 require("@nomiclabs/hardhat-waffle");
 const fs = require("fs");
 const privateKey = fs.readFileSync(".secret").toString();
-const projectId = "b8ea14e616b54ce88081a0bfb5956572";
+const projectId = fs.readFileSync(".project_id").toString();
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
