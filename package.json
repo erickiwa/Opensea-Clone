@@ -15,7 +15,6 @@
     "chai": "^4.3.6",
     "ethereum-waffle": "^3.4.0",
     "ethers": "^5.5.4",
-    "hardhat": "^2.8.3",
     "ipfs-http-client": "^56.0.1",
     "next": "12.0.10",
     "react": "17.0.2",
@@ -26,6 +25,7 @@
     "autoprefixer": "^10.4.2",
     "eslint": "8.8.0",
     "eslint-config-next": "12.0.10",
+    "hardhat": "^2.8.4",
     "postcss": "^8.4.6",
     "tailwindcss": "^3.0.22"
   }
