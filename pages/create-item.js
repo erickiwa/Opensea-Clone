@@ -96,18 +96,18 @@ export default function CreateItem() {
         <div classnName="flex justfy-center">
             <div className="w-1/2 flex flex-col pb-12">
                 <input 
-                    placeholder="Asset Name"
+                    placeholder="nome do item"
                     className="mt-8 border rounder p-4"
                     onChange={e => updateFormInput({...formInput, name: e.target.value})}
                     />
                 <textarea 
-                    placeholder="Asset descripton"
+                    placeholder="descrição do item"
                     className="mt-2 border rounded p-4"
                     onChange={e => updateFormInput({ ...formInput, descripton: e.target.value})}
                     />
 
                 <input 
-                    placeholder="Asset Price in eth"
+                    placeholder="preço em ETH"
                     className="mt-8 border rounder p-4"
                     onChange={e => updateFormInput({...formInput, name: e.target.value})}
                     />
