@@ -9,7 +9,7 @@
 ### Solidity:
 > Linguagem para criação de smart-contracts
 ### Hardhat:
-> ferramenta para compilar e rodar smart contracts
+> ferramenta para compilar e rodar smart contracts. É necessario usar o comando npx hardhat node para gerar os artifacts, é necessario para rodar o next. Outros comandos estão no config.js.
 ### openzeppelin:
 > é parecido com uma biblioteca, facilita bastante para criar os smart-contracts
 
