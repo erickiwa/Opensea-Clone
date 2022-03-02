@@ -20,7 +20,7 @@ export default function CreateItem() {
     const router = useRouter();
 
     async function onChange(e) {
-        const file = e.target.file[0]
+        const file = e.target.files[0]
         try{ //tentando fazer um updload de um arquivo
             const added = await client.add(
                 file, 
@@ -29,7 +29,7 @@ export default function CreateItem() {
                 }
             )
             //salvando o arquivo na url definida
-            const url = `https://ips.infura.io/ipfs/${added.path}`
+            const url = `https://ipfs.infura.io/ipfs/${added.path}`
             setFileUrl(url);
         } catch(e) {
             console.log(e);
@@ -37,7 +37,7 @@ export default function CreateItem() {
     }
 
     async function createItem() {
-        const {name, description, price} = formInput; //pegando os valored de um imput
+        const {name, description, price} = formInput; //pegando os valores de um imput
         
         if(!name || !description || !price || !fileUrl) {
             return
@@ -58,14 +58,14 @@ export default function CreateItem() {
     }
     
     //listando apra venda
-    async function createSale() {
+    async function createSale(url) {
         const web3Modal = new Web3Modal();
         const connection = await web3Modal.connect();
         const provider = new ethers.providers. web3Provider(connection);
     
         //assinando a transação
         let signer = provider.getSigner();
-        let contract = ethers.Contract(nftmarketaddress, NFT.abi, signer);
+        let contract = ethers.Contract(nftaddress, NFT.abi, signer);
         let transaction = await contract.createToken(url);
         let tx = await transaction.await();
     
@@ -76,7 +76,7 @@ export default function CreateItem() {
         //pegando a referencia do preço inserido no form
         const price = ethers.utils.parseUnits(formInput.price, 'ether');
         
-        contract = ethers.Contract(nftmarketaddress, Market.abi, signer);
+        contract = new ethers.Contract(nftmarketaddress, Market.abi, signer);
     
         //pegando o preço de listagem
         let listingPrice = await contract.getListingPrice()
@@ -93,7 +93,7 @@ export default function CreateItem() {
     }
 
     return (
-        <div classnName="flex justfy-center">
+        <div className="flex justify-center">
             <div className="w-1/2 flex flex-col pb-12">
                 <input 
                     placeholder="nome do item"
@@ -109,6 +109,7 @@ export default function CreateItem() {
                 <input 
                     placeholder="preço em ETH"
                     className="mt-8 border rounder p-4"
+                    type="number"
                     onChange={e => updateFormInput({...formInput, name: e.target.value})}
                     />
                     <input 
@@ -123,7 +124,8 @@ export default function CreateItem() {
                             src={fileUrl} 
                             alt='Nft picture'
                             className="rounded mt-4"
-                            widith={350}
+                            width={350}
+                            height={500}
                             />
                         )
                     }
